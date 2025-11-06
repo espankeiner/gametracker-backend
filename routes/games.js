@@ -8,6 +8,12 @@ router.get("/", async (req,res)=>{
     res.json(games)
 })
 
+// GET un solo juego
+router.get("/:id", async (req,res)=>{
+    const game = await Game.findById(req.params.id)
+    res.json(game)
+})
+
 // POST agregar juego
 router.post("/", async (req,res)=>{
     const game = new Game(req.body)
